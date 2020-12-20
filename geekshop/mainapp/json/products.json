@@ -1,0 +1,84 @@
+[
+    {
+        "category": "костюмы",
+        "name": "костюм1",
+        "image": "products_images/костюм1.jpg",
+        "short_desc": "",
+        "description": "мужской костюм",
+        "price": "10000",
+        "quantity": "2"
+    },
+    {
+        "category": "костюмы",
+        "name": "костюм2",
+        "image": "products_images/костюм2.jpg",
+        "short_desc": "",
+        "description": "мужской костюм",
+        "price": "15000",
+        "quantity": "3"
+    },
+     {
+        "category": "костюмы",
+        "name": "костюм3",
+        "image": "products_images/костюм3.jpg",
+        "short_desc": "",
+        "description": "мужской костюм",
+        "price": "12000",
+        "quantity": "4"
+    },
+    {
+        "category": "пиджаки",
+        "name": "пиджак1",
+        "image": "products_images/пиджак1.jpg",
+        "short_desc": "",
+        "description": "мужской пиджак",
+        "price": "5000",
+        "quantity": "2"
+    },
+    {
+        "category": "пиджаки",
+        "name": "пиджак2",
+        "image": "products_images/пиджак2.jpg",
+        "short_desc": "",
+        "description": "мужской пиджак",
+        "price": "5000",
+        "quantity": "2"
+    },
+    {
+        "category": "пиджаки",
+        "name": "пиджак3",
+        "image": "products_images/пиджак3.jpg",
+        "short_desc": "",
+        "description": "мужской пиджак",
+        "price": "5000",
+        "quantity": "2"
+    },
+    {
+        "category": "пиджаки",
+        "name": "пиджак4",
+        "image": "products_images/пиджак4.jpg",
+        "short_desc": "",
+        "description": "мужской пиджак",
+        "price": "5000",
+        "quantity": "2"
+    },
+    {
+      "category": "верхняя одежда",
+      "name": "куртка1",
+      "image": "products_images/куртка1.jpg",
+      "short_desc": "",
+      "description": "мужская куртка",
+      "price": "5000",
+      "quantity": "2"
+    },
+    {
+      "category": "верхняя одежда",
+      "name": "куртка2",
+      "image": "products_images/куртка2.jpg",
+      "short_desc": "",
+      "description": "мужская куртка",
+      "price": "5000",
+      "quantity": "2"
+    }
+
+]
