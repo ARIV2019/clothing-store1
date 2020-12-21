@@ -179,7 +179,7 @@ class ProductCreateView(CreateView):
         category_pk = self.kwargs['pk']
         category_item = get_object_or_404(ProductCategory, pk=category_pk)
         context_data['category'] = category_item
-        context_data['title'] = 'редактирование товара'
+        context_data['title'] = 'создание товара'
         return context_data
 
     def get_success_url(self):
@@ -224,24 +224,27 @@ class ProductDetailView(DetailView):
         return context
 
 
-@user_passes_test(lambda u: u.is_superuser)
-def product_update(request, pk):
-    title = 'редактирование продукта'
-    edit_product = get_object_or_404(Product, pk=pk)
-    if request.method == 'POST':
-        edit_form = ProductEditForm(request.POST, request.FILES, instance=edit_product)
-        if edit_form.is_valid():
-            edit_form.save()
-            return HttpResponseRedirect(reverse('admin:product_update', args=[edit_product.pk]))
-    else:
-        edit_form = ProductEditForm(instance=edit_product)
+class ProductUpdateView(UpdateView):
+    model = Product
+    template_name = 'adminapp/product_update.html'
+    form_class = ProductEditForm
 
-    content = {
-        'title': title,
-        'update_form': edit_form,
-        'category': edit_product.category
-    }
-    return render(request, 'adminapp/product_update.html', content)
+    @method_decorator(user_passes_test(lambda u: u.is_superuser))
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
+    def get_context_data(self, *args, **kwargs):
+        context_data = super().get_context_data(*args, **kwargs)
+        category_pk = self.kwargs['pk']
+        category_item = get_object_or_404(ProductCategory, pk=category_pk)
+        context_data['category'] = category_item
+        context_data['title'] = 'редактирование товара'
+        return context_data
+
+    def get_success_url(self):
+        category_pk = self.kwargs['pk']
+        success_url = reverse('adminapp:products', args=[category_pk])
+        return success_url
 
 
 class ProductDeleteView(DeleteView):
