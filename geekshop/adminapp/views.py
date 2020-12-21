@@ -184,7 +184,7 @@ class ProductCreateView(CreateView):
 
     def get_success_url(self):
         category_pk = self.kwargs['pk']
-        success_url = reverse('adminapp:products', args=[category_pk])
+        success_url = reverse('admin:products', args=[category_pk])
         return success_url
 
 
@@ -243,7 +243,7 @@ class ProductUpdateView(UpdateView):
 
     def get_success_url(self):
         category_pk = self.kwargs['pk']
-        success_url = reverse('adminapp:products', args=[category_pk])
+        success_url = reverse('admin:products', args=[category_pk])
         return success_url
 
 
