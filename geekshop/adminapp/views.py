@@ -235,16 +235,17 @@ class ProductUpdateView(UpdateView):
 
     def get_context_data(self, *args, **kwargs):
         context_data = super().get_context_data(*args, **kwargs)
-        category_pk = self.kwargs['pk']
-        category_item = get_object_or_404(ProductCategory, pk=category_pk)
+        pk = self.kwargs['pk']
+        product_item = Product.objects.get(pk=pk)
+        category_item = get_object_or_404(ProductCategory, pk=product_item.category_id)
         context_data['category'] = category_item
         context_data['title'] = 'редактирование товара'
         return context_data
 
     def get_success_url(self):
-        category_pk = self.kwargs['pk']
-        success_url = reverse('admin:products', args=[category_pk])
-        return success_url
+        pk = self.kwargs['pk']
+        product_item = Product.objects.get(pk=pk)
+        return reverse('admin:products', args=[product_item.category_id])
 
 
 class ProductDeleteView(DeleteView):
