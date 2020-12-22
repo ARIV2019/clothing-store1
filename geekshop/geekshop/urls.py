@@ -27,6 +27,8 @@ urlpatterns = [
     path('contact/', mainapp.contact, name='contact'),
     path('admin/', include('adminapp.urls', namespace='admin')),
     #path('admin/', admin.site.urls, name='admin'),
+
+    path('', include('social_django.urls', namespace='social')),
 ]
 
 handler404 = 'mainapp.views.not_found'
