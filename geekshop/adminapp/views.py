@@ -14,7 +14,7 @@ from mainapp.models import ProductCategory, Product
 class UserListView(ListView):
     model = ShopUser
     template_name = 'adminapp/users.html'
-    paginate_by = 20
+    paginate_by = 30
 
     @method_decorator(user_passes_test(lambda u: u.is_superuser))
     def dispatch(self, *args, **kwargs):
