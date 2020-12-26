@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 with open('geekshop/sk.json', 'r') as f:
     SK = json.load(f)
 
-SECRET_KEY = SK['S_K']
+SECRET_KEY = "SK['S_K']"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
