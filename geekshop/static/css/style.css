@@ -628,7 +628,7 @@ html, body {
 	height: 800px;
 	background-image: url(/static/img/slider.jpg); 
 	/*padding-left: 98px;*/
-	padding-left: 78px;
+	padding-left: 120px;
 	padding-right: 211px;
 	position: relative;
 }
@@ -643,14 +643,23 @@ html, body {
 
 .menu {
 	list-style-type: none;
-	margin-top: 37px;
+	margin-top: 35px;
+	float: right;
+}
+.menu li {
+	float: left;
+}
+
+.menu {
+	list-style-type: none;
+	margin-top: 35px;
 	float: right;
 }
 .menu li {
 	float: left;
 }
 .menu a {
-	color: #8c8c8c;
+	color: light gold;
 	font-size: 14px;
 	font-weight: 700;
 	text-align: right;
@@ -659,7 +668,7 @@ html, body {
 	padding: 10px 13px;
 }
 .menu .active {
-	color: #212121;
+	color: gold;
 	font-weight: 700;
 	border-bottom: 3px solid #212121;
 }
@@ -1465,13 +1474,14 @@ td:first-child {
 }
 
 .links {
-	height: 70px;
+	margin:	50px;
+	height: 50px;
 	background-color: #f4f4f4;
 	position: relative;
 	padding-left: 360px;
 }
 .links-menu {
-	margin:	27px auto 0px;	
+	margin:	15px auto 0px;
 	position: absolute;
 }
 .links-menu li {
