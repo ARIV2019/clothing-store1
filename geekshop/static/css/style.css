@@ -716,23 +716,23 @@ html, body {
 
 .menu {
 	list-style-type: none;
-	margin-top: 35px;
+	margin-top: 67px;
 	float: right;
 }
 .menu li {
 	float: left;
 }
 .menu a {
-	color: light gold;
-	font-size: 10px;
-	font-weight: 300;
+	color: #8c8c8c;
+	font-size: 14px;
+	font-weight: 700;
 	text-align: right;
 	text-transform: uppercase;
 	text-decoration: none;
 	padding: 10px 13px;
 }
 .menu .active {
-	color: gold;
+	color: #212121;
 	font-weight: 700;
 	border-bottom: 3px solid #212121;
 }
@@ -1760,8 +1760,4 @@ td:first-child {
 }
 .related-products a:hover .text{
 	display: block;
-}
-
-.selector-for-some-widget {
-  box-sizing: content-box;
 }
