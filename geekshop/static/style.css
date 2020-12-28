@@ -64,8 +64,8 @@ html, body {
 }
 .menu a {
 	color: light gold;
-	font-size: 14px;
-	font-weight: 700;
+	font-size: 10px;
+	font-weight: 300;
 	text-align: right;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -868,14 +868,14 @@ td:first-child {
 }
 
 .links {
-	margin:	50px;
-	height: 50px;
+	margin:	20px;
+	height: 20px;
 	background-color: #f4f4f4;
 	position: relative;
 	padding-left: 360px;
 }
 .links-menu {
-	margin:	15px auto 0px;
+	margin:	115px auto 0px;
 	position: absolute;
 }
 .links-menu li {
@@ -886,7 +886,7 @@ td:first-child {
 .links-menu li a {
 	text-decoration: none;
 	color:  #6c6c6c;
-	font-size: 18px;
+	font-size: 10px;
 	font-weight: 700;
 	text-transform: uppercase;
 }
@@ -1179,4 +1179,7 @@ td:first-child {
 	content: "";
 	display: block;
 	clear: both;
+}
+.selector-for-some-widget {
+  box-sizing: content-box;
 }
