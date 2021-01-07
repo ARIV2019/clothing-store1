@@ -1,13 +1,13 @@
 window.onload = function () {
-    var _quantity, _price, orderitem_num, delta_quantity, orderitem_quantity, delta_cost;
-    var quantity_arr = [];
-    var price_arr = [];
+    let _quantity, _price, orderitem_num, delta_quantity, orderitem_quantity, delta_cost;
+    let quantity_arr = [];
+    let price_arr = [];
 
-    var TOTAL_FORMS = parseInt($('input[name="orderitems-TOTAL_FORMS"]').val());
-    var order_total_quantity = parseInt($('.order_total_quantity').text()) || 0;
-    var order_total_cost = parseFloat($('.order_total_cost').text().replace(',', '.')) || 0;
+    let TOTAL_FORMS = parseInt($('input[name="orderitems-TOTAL_FORMS"]').val());
+    let order_total_quantity = parseInt($('.order_total_quantity').text()) || 0;
+    let order_total_cost = parseFloat($('.order_total_cost').text().replace(',', '.')) || 0;
 
-    for (var i=0; i < TOTAL_FORMS; i++) {
+    for (let i=0; i < TOTAL_FORMS; i++) {
         _quantity = parseInt($('input[name="orderitems-' + i + '-quantity"]').val());
         _price = parseFloat($('.orderitems-' + i + '-price').text().replace(',', '.'));
         quantity_arr[i] = _quantity;
@@ -19,7 +19,7 @@ window.onload = function () {
     }
 
     if (!order_total_quantity) {
-        for (var i=0; i < TOTAL_FORMS; i++) {
+        for (let i=0; i < TOTAL_FORMS; i++) {
             order_total_quantity += quantity_arr[i];
             order_total_cost += quantity_arr[i] * price_arr[i];
         }
@@ -28,7 +28,7 @@ window.onload = function () {
     }
 
     $('.order_form').on('click', 'input[type="number"]', function () {
-        var target = event.target;
+        let target = event.target;
         orderitem_num = parseInt(target.name.replace('orderitems-', '').replace('-quantity', ''));
         if (price_arr[orderitem_num]) {
             orderitem_quantity = parseInt(target.value);
@@ -38,9 +38,21 @@ window.onload = function () {
         }
     });
 
+    $('.order_form').on('click', 'input[type="checkbox"]', function () {
+        let target = event.target;
+        orderitem_num = parseInt(target.name.replace('orderitems-', '').replace('-DELETE', ''));
+        if (target.checked) {
+            delta_quantity = -quantity_arr[orderitem_num];
+        } else {
+            delta_quantity = quantity_arr[orderitem_num];
+        }
+        orderSummaryUpdate(price_arr[orderitem_num], delta_quantity);
+    });
+
+
 
     function deleteOrderItem(row) {
-        var target_name= row[0].querySelector('input[type="number"]').name;
+        let target_name= row[0].querySelector('input[type="number"]').name;
         orderitem_num = parseInt(target_name.replace('orderitems-', '').replace('-quantity', ''));
         delta_quantity = -quantity_arr[orderitem_num];
         orderSummaryUpdate(price_arr[orderitem_num], delta_quantity);
@@ -48,7 +60,7 @@ window.onload = function () {
 
 
     $('.order_form select').change(function () {
-        var target = event.target;
+        let target = event.target;
         console.log(target);
     });
 
@@ -69,4 +81,5 @@ window.onload = function () {
         prefix: 'orderitems',
         removed: deleteOrderItem
     });
+
 }
