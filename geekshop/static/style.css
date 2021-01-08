@@ -558,8 +558,8 @@ html, body {
 }
 
 .footer {
-	height: 384px;
-	width: 1169px;
+	height: 400px;
+	width: 1350px;
 	background-color: #f7f7f7;
 	padding-left: 99px;
 	padding-right: 98px;
@@ -581,7 +581,7 @@ html, body {
 }
 .text-footer {
 	margin-top: 120px;
-	width: 221px;
+	width: 150px;
 	float: left;
 	margin-right: 68px;
 }
