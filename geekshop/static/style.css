@@ -32,25 +32,25 @@ html, body {
 
 .logo {
 	background-image: url(img/logo.png);
-	margin-top: 05px;
-	width: 700px;
-	height: 90px;
+	margin-top: 00px;
+	width: 650px;
+	height: 80px;
 	float: left;
 }
 
 .logo1 {
 	background-image: url(img/logo1.png);
-	margin-top: 05px;
-	width: 700px;
-	height: 90px;
+	margin-top: 00px;
+	width: 650px;
+	height: 80px;
 	float: left;
 }
 
 .logo2 {
 	background-image: url(img/logo2.png);
-	margin-top: 05px;
-	width: 700px;
-	height: 90px;
+	margin-top: 00px;
+	width: 650px;
+	height: 80px;
 	float: left;
 }
 
