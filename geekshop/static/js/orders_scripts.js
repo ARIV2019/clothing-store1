@@ -55,7 +55,11 @@ window.onload = function () {
         let target_name= row[0].querySelector('input[type="number"]').name;
         orderitem_num = parseInt(target_name.replace('orderitems-', '').replace('-quantity', ''));
         delta_quantity = -quantity_arr[orderitem_num];
-        orderSummaryUpdate(price_arr[orderitem_num], delta_quantity);
+        quantity_arr[orderitem_num] = 0;
+        if (!isNaN(price_arr[orderitem_num]) && !isNaN(delta_quantity)) {
+            orderSummaryUpdate(price_arr[orderitem_num], delta_quantity);
+        }
+
     }
 
 
@@ -83,12 +87,12 @@ window.onload = function () {
         order_total_quantity = 0;
         order_total_cost = 0;
 
-        for (let i=0; i < TOTAL_FORMS; i++) {
+        for(let i=0; i < TOTAL_FORMS; i++) {
             order_total_quantity += quantity_arr[i];
             order_total_cost += quantity_arr[i] * price_arr[i];
         }
-    $('.order_total_quantity').html(order_total_quantity.toString());
-    $('.order_total_cost').html(Number(order_total_cost.toFixed(2)).toString());
+        $('.order_total_quantity').html(order_total_quantity.toString());
+        $('.order_total_cost').html(Number(order_total_cost.toFixed(2)).toString());
     }
 
 
