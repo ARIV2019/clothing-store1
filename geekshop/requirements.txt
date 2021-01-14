@@ -1,5 +1,8 @@
-psycopg2-binary
-pillow
-django
-social_auth_app_django
-request
+Django==3.1.4
+Pillow
+psycopg2-binary==2.8.6
+requests==2.22.0
+requests-oauthlib==1.3.0
+social-auth-app-django==4.0.0
+social-auth-core==3.3.3
+
