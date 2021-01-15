@@ -8,3 +8,8 @@ social-auth-core==3.3.3
 django-debug-toolbar
 django-debug-toolbar-template-profiler
 django-extensions
+pydotplus
+graphviz
+graphviz
+
+
