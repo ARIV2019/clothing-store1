@@ -32,7 +32,7 @@ def verify(request, email, activation_key):
         print('error')
 
 
-@csrf_exempt
+#@csrf_exempt
 def login(request):
     title = 'вход'
     login_form = ShopUserLoginForm(data=request.POST or None)

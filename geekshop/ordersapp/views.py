@@ -104,7 +104,7 @@ class OrderItemsUpdate(UpdateView):
                 if product:
                     form.initial['price'] = product.first().price
 
-        data['orderitems'] = formset
+            data['orderitems'] = formset
         return data
 
     def form_valid(self, form):
