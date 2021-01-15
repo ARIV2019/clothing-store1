@@ -8,6 +8,7 @@ import os
 from pathlib import Path
 
 from basketapp.models import Basket
+from mainapp.management.commands.fill_db import JSON_PATH
 from mainapp.models import Product, ProductCategory
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -104,3 +105,8 @@ def not_found(request, exception):
 
     # выборка из базыб преобразование данных и тд
     return render(request, '404.html', context={'item': 'item'}, status=404)
+
+
+def load_from_json(file_name):
+    with open(os.path.join(JSON_PATH, file_name + '.json'), 'r', errors='ignore') as infile:
+        return json.load(infile)

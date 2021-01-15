@@ -1,0 +1,10 @@
+http://89.108.71.215/
+http://89.108.71.215/products
+http://89.108.71.215/productscategory/0
+http://89.108.71.215/productscategory/1
+http://89.108.71.215/productscategory/2
+http://89.108.71.215/productscategory/3
+http://89.108.71.215/productscategory/4
+http://89.108.71.215/productscategory/5
+http://89.108.71.215/order/
+http://89.108.71.215/basket/
