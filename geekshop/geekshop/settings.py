@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'adminapp',
     'ordersapp',
     'debug_toolbar',
-    'template_profiler_panel'
+    'template_profiler_panel',
+    'django_extensions',
 
 ]
 
