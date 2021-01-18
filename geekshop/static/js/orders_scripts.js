@@ -103,7 +103,7 @@ window.onload = function () {
         removed: deleteOrderItem
     });
 
-    $('.order_form select').change(function () {
+    $('.order_form select').on('click', 'input[type="checkbox"]', function () {
         let target = event.target;
         orderitem_num = parseInt(target.name.replace('orderitems-', '').replace('-product', ''));
         let orderitem_product_pk = target.options[target.selectedIndex].value;
@@ -131,5 +131,6 @@ window.onload = function () {
             });
         }
     });
+
 
 }
