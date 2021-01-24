@@ -12,7 +12,7 @@ from mainapp.management.commands.fill_db import JSON_PATH
 from mainapp.models import Product, ProductCategory
 from django.conf import settings
 from django.core.cache import cache
-
+from django.views.decorators.cache import cache_page
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -141,6 +141,7 @@ def product(request, pk):
     return render(request, 'mainapp/product.html', content)
 
 
+@cache_page(3600)
 def products(request, pk=None, page=1):
     print(pk)
     title = 'Константин товар'
