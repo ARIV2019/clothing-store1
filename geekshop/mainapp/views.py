@@ -141,7 +141,7 @@ def product(request, pk):
     return render(request, 'mainapp/product.html', content)
 
 
-@cache_page(3600)
+#@cache_page(3600)
 def products(request, pk=None, page=1):
     print(pk)
     title = 'Константин товар'
