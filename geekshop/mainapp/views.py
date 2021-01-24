@@ -99,7 +99,7 @@ def get_products_in_category_orederd_by_price(pk):
 
 
 def get_hot_product():
-    products_list = Product.objects.all()
+    products_list = get_products()
     return random.sample(list(products_list), 1)[0]
 
 
@@ -109,8 +109,7 @@ def get_same_products(hot_product):
 
 def main(request):
     title = 'Константин'
-    #products = Product.objects.all()[:3]
-    products = Product.objects.filter(is_active=True, category__is_active=True).select_related('category')[:3]
+    products = get_products()[:3]
     content = {
         'title': title,
         'products': products,
@@ -132,12 +131,12 @@ def contact(request):
 
 def product(request, pk):
     title = 'продукты'
-    #same_all_products = get_same_all_products(product)
+    links_menu = get_links_menu()
+    product = get_product(pk)
     content = {
         'title': title,
-        'links_menu': ProductCategory.objects.all(),
-        'product': get_object_or_404(Product, pk=pk, is_active=True),
-        #'same_all_product': same_all_products,
+        'links_menu': links_menu,
+        'product': product,
     }
     return render(request, 'mainapp/product.html', content)
 
@@ -152,10 +151,10 @@ def products(request, pk=None, page=1):
     if pk is not None:
         if pk == 0:
             category = {'name': 'все', 'pk': 0}
-            products = Product.objects.filter(is_active=True)
+            products = get_products_orederd_by_price()
         else:
-            category = get_object_or_404(ProductCategory, pk=pk)
-            products = Product.objects.filter(category__pk=pk, is_active=True)
+            category = get_category(pk)
+            products = get_products_in_category_orederd_by_price(pk)
 
         paginator = Paginator(products, 6)
         try:
