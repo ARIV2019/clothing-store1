@@ -28,8 +28,8 @@ with open('geekshop/sk.json', 'r') as f:
 SECRET_KEY = SK['S_K']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
-DEBUG = False
+DEBUG = True
+#DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
