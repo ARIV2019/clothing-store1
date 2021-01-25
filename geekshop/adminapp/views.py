@@ -1,4 +1,6 @@
 from django.contrib.auth.decorators import user_passes_test
+from django.db import connection
+from django.db.models import F
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse, reverse_lazy
@@ -122,6 +124,12 @@ class ProductCategoryCreateView(CreateView):
         return context
 
 
+# def db_profile_by_type(__class__, param, queries):
+#     UPDATE "mainapp_product"
+#     SET "price" = CAST (("mainapp_product"."price" * 0.95) AS  NUMERIC)
+#     WHERE "mainapp_product"."category_id" = 4
+
+
 class ProductCategoryUpdateView(UpdateView):
     model = ProductCategory
     template_name = 'adminapp/category_update.html'
@@ -136,6 +144,17 @@ class ProductCategoryUpdateView(UpdateView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'редактирование категории'
         return context
+
+    def form_valid(self, form):
+        if 'discount' in form.cleaned_data:
+            discount = form.cleaned_data['discount']
+            if discount:
+                print(f'применяктся скидка{discount}% к товарам категории {self.object.name}')
+                self.object.product_set.update(price=F('price') * (1 - discount/100))
+                #db_profile_by_type(self.__class__, 'UPDATE', connection.queries)
+
+        return super().form_valid(form)
+
 
 
 class ProductCategoryDeleteView(DeleteView):
